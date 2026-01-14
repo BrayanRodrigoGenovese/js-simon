@@ -19,8 +19,10 @@ function randomNumbers(quantity, max = 50, min = 1) {
 }
 
 //selectors
-const numbersList = document.getElementById("numbers-list");
 const countdown = document.getElementById("countdown");
+const instructions = document.getElementById("instructions");
+const numbersList = document.getElementById("numbers-list");
+const answersForm = document.getElementById("answers-form");
 countdown.innerText = 3;
 
 // 5 numeri casuali
@@ -36,11 +38,16 @@ const intervalId = setInterval(() => {
   countdownSeconds--;
 
   if (countdownSeconds <= 0) {
-    countdown.innerText = 0;
+    // nascondi gli elementi
+    countdown.classList.add("d-none");
+    instructions.classList.add("d-none");
+    numbersList.classList.add("d-none");
+
+    // mostra il form
+    answersForm.classList.remove("d-none");
+
     clearInterval(intervalId);
   } else {
     countdown.innerText = countdownSeconds;
   }
 }, 1000);
-
-// nascondere gli elementi
