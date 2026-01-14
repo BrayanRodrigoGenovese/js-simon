@@ -9,3 +9,13 @@
 - verifica dei numeri
 - responso
 */
+
+function randomNumbers(quantity, max = 10, min = 0) {
+  const numbers = [];
+  for (let i = 0; i < quantity; i++) {
+    numbers.push(Math.floor(Math.random() * (max - min) + min));
+  }
+  return numbers;
+}
+
+console.log(randomNumbers(5));
