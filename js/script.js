@@ -10,7 +10,7 @@
 - responso
 */
 
-function randomNumbers(quantity, max = 100, min = 0) {
+function randomNumbers(quantity, max = 50, min = 1) {
   const numbers = [];
   for (let i = 0; i < quantity; i++) {
     numbers.push(Math.floor(Math.random() * (max - min) + min));
@@ -20,6 +20,8 @@ function randomNumbers(quantity, max = 100, min = 0) {
 
 //selectors
 const numbersList = document.getElementById("numbers-list");
+const countdown = document.getElementById("countdown");
+countdown.innerText = 3;
 
 // 5 numeri casuali
 const numbers = randomNumbers(5);
@@ -29,16 +31,16 @@ for (let i = 0; i < numbers.length; i++) {
 }
 
 // timer di 30 secondi
-let countdownSeconds = 5;
+let countdownSeconds = 3;
 const intervalId = setInterval(() => {
   countdownSeconds--;
 
   if (countdownSeconds <= 0) {
-    console.log("fine");
+    countdown.innerText = 0;
     clearInterval(intervalId);
   } else {
-    console.log(countdownSeconds);
+    countdown.innerText = countdownSeconds;
   }
 }, 1000);
 
-console.log(randomNumbers(5));
+// nascondere gli elementi
