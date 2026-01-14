@@ -23,6 +23,8 @@ const countdown = document.getElementById("countdown");
 const instructions = document.getElementById("instructions");
 const numbersList = document.getElementById("numbers-list");
 const answersForm = document.getElementById("answers-form");
+const inputFields = document.querySelectorAll("input");
+
 countdown.innerText = 3;
 
 // 5 numeri casuali
@@ -51,3 +53,31 @@ const intervalId = setInterval(() => {
     countdown.innerText = countdownSeconds;
   }
 }, 1000);
+
+inputFields.forEach((input) => {
+  input.addEventListener("change", () => {
+    inputFields.forEach((field) => field.setCustomValidity(""));
+
+    const values = [];
+
+    inputFields.forEach((field) => {
+      if (field.value !== "") {
+        if (values.includes(field.value)) {
+          field.setCustomValidity("Numero già inserito!");
+          field.reportValidity();
+        }
+        values.push(field.value);
+      }
+    });
+  });
+});
+/*answerForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+    const userNumbers = [];
+    for (let i = 0; i < inputFields.length; i++) {
+        const number = inputFields[i];
+        if (number === numbers [i]) {
+        }
+        
+    }
+});*/
