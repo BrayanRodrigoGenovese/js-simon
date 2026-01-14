@@ -18,4 +18,16 @@ function randomNumbers(quantity, max = 10, min = 0) {
   return numbers;
 }
 
+let countdownSeconds = 5;
+const intervalId = setInterval(() => {
+  countdownSeconds--;
+
+  if (countdownSeconds <= 0) {
+    console.log("fine");
+    clearInterval(intervalId);
+  } else {
+    console.log(countdownSeconds);
+  }
+}, 1000);
+
 console.log(randomNumbers(5));
