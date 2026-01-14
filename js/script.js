@@ -55,6 +55,10 @@ const intervalId = setInterval(() => {
 }, 1000);
 
 inputFields.forEach((input) => {
+  input.addEventListener("input", () => {
+    input.setCustomValidity("");
+  });
+
   input.addEventListener("change", () => {
     inputFields.forEach((field) => field.setCustomValidity(""));
 
