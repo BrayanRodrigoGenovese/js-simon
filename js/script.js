@@ -10,7 +10,7 @@
 - responso
 */
 
-function randomNumbers(quantity, max = 10, min = 0) {
+function randomNumbers(quantity, max = 100, min = 0) {
   const numbers = [];
   for (let i = 0; i < quantity; i++) {
     numbers.push(Math.floor(Math.random() * (max - min) + min));
@@ -18,6 +18,17 @@ function randomNumbers(quantity, max = 10, min = 0) {
   return numbers;
 }
 
+//selectors
+const numbersList = document.getElementById("numbers-list");
+
+// 5 numeri casuali
+const numbers = randomNumbers(5);
+// inserisci i numeri in numbers lists:
+for (let i = 0; i < numbers.length; i++) {
+  numbersList.innerHTML += `<li>${numbers[i]}</li>`;
+}
+
+// timer di 30 secondi
 let countdownSeconds = 5;
 const intervalId = setInterval(() => {
   countdownSeconds--;
